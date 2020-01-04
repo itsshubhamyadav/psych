@@ -2,9 +2,7 @@ package com.shubham.psych.game.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import com.shubham.psych.game.Constants;
 
@@ -12,22 +10,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="ellenAnswers")
-public class EllenAnswer extends Auditable{
-	
-	@ManyToOne
-	@Getter
-    @Setter
-	private Question question;
+@Table(name="playerAnswers")
+public class PlayerAnswer extends Auditable{
 	
 	@Getter
     @Setter
-    @NotBlank
     @Column(length = Constants.MAX_ANSWER_LENGTH)
 	private String answer;
-	
 	@Getter
     @Setter
-	private Long votes=0L;
+	private Round round;
+	@Getter
+    @Setter
+	private Player player;
+	
+	
 
 }

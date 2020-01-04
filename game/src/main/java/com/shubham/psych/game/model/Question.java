@@ -1,37 +1,40 @@
 package com.shubham.psych.game.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.shubham.psych.game.Constants;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "questions")
+@Table(name="questions")
 public class Question extends Auditable{
 	
 	@Getter
     @Setter
-	private String quetionText;
+    @NotBlank
+    @Column(length = Constants.MAX_QUESTION_LENGTH)
+	private String questionText;
 	@Getter
     @Setter
-	private String answer;
-	@OneToMany
+    @NotBlank
+    @Column(length = Constants.MAX_ANSWER_LENGTH)
+	private String correctAnswer;
 	@Getter
     @Setter
-	private Round round;
-	@OneToMany
+    @NotNull
+	private GameMode gameMode;
+	@OneToMany(mappedBy ="question")
 	@Getter
     @Setter
-	private EllenAnswer ellenAnswer;
-	@ManyToMany
-	@Getter
-    @Setter
-	private ContentWriter contentWriter;
-	
-	
-	
+	private List<EllenAnswer> ellenAnswer;
 
 }

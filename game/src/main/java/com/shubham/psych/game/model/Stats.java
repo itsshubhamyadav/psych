@@ -12,25 +12,14 @@ import lombok.Setter;
 @Table(name = "stats")
 public class Stats extends Auditable{
 	
-	@OneToMany
 	@Getter
     @Setter
-	private Player player;
+	private long correctAnswers=0;
 	@Getter
     @Setter
-	private int correct_answer;
+	private long gotPsychedCount=0;
 	@Getter
     @Setter
-	private int wrong_answer;
-	@Getter
-    @Setter
-	private int total_question;
-	@OneToOne
-	@Getter
-    @Setter
-	private Game game;
+	private long othersPsychedCount=0;
 	
-	
-	
-
 }
