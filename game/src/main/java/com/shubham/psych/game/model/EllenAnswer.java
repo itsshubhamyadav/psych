@@ -6,6 +6,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.shubham.psych.game.Constants;
 
 import lombok.Getter;
@@ -18,6 +20,7 @@ public class EllenAnswer extends Auditable{
 	@ManyToOne
 	@Getter
     @Setter
+    @JsonBackReference
 	private Question question;
 	
 	@Getter

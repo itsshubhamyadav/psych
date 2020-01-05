@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.shubham.psych.game.model.Question;
+
 public class Utils {
 	
 	private static List<String> wordsList;
@@ -71,5 +73,10 @@ public class Utils {
         }
         return gameId;
     }
+
+	public static Question getRandomQuestion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

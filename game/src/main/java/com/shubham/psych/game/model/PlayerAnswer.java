@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.shubham.psych.game.Constants;
 
 import lombok.Getter;
@@ -19,10 +20,18 @@ public class PlayerAnswer extends Auditable{
 	private String answer;
 	@Getter
     @Setter
+    @JsonBackReference
 	private Round round;
 	@Getter
     @Setter
 	private Player player;
+	
+	public PlayerAnswer(String answer, Round round, Player player) {
+		super();
+		this.answer = answer;
+		this.round = round;
+		this.player = player;
+	}
 	
 	
 
